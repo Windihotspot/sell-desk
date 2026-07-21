@@ -18,13 +18,7 @@ const toggleMobileMenu = () => {
   <header class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
     <nav class="max-w-7xl mx-auto flex items-center justify-between h-16 px-4 md:px-6">
       <!-- Logo -->
-      <div class="flex items-center gap-1 shrink-0">
-        <div class="leading-tight">
-          <span class="text-2xl font-bold text-blue-600 block -mb-1 ml-4">sell</span>
-          <span class="text-2xl font-bold text-slate-900 block">desk</span>
-        </div>
-        <span class="text-emerald-500 font-medium text-xs mt-1">@quidly</span>
-      </div>
+       <img src="/logo.png" alt="Selldesk Logo" class="h-12 w-auto ml-9" />
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center gap-8 text-gray-700 font-sm">
@@ -80,7 +74,7 @@ const toggleMobileMenu = () => {
 
         <a href="#" class="text-sm font-semibold text-blue-600 hover:text-blue-700">Sign In</a>
 
-        <a href="#" class="bg-slate-900 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-slate-800 transition-colors">
+        <a href="#" class="bg-[#053758] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-slate-800 transition-colors">
           Sign Up For Free
         </a>
       </div>
