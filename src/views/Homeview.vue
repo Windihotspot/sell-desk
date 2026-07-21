@@ -4,9 +4,7 @@ import Footer from '@/components/Footer.vue';
 </script>
 
 <template>
-    <Navbar />
-    <div class="mt-20">
-        <Footer /> 
-    </div>
+    
+    <h2>New Sell-desk</h2>
    
 </template>
