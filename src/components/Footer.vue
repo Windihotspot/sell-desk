@@ -1,13 +1,13 @@
 <template>
   <footer class="bg-[#053758] text-white">
-    <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="max-w-screen-2xl mx-auto px-5 sm:px-8 lg:px-10 py-12 lg:py-16">
       <!-- Main Footer Content -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-12 gap-10 lg:gap-12">
         <!-- Help & Resources -->
-        <div class="lg:col-span-5 ml-10">
+        <div class="xl:col-span-5">
           <h3 class="text-white font-semibold text-lg tracking-wide mb-2">Help & Resources</h3>
-          <div class="w-80 h-px bg-gray-50/30 mb-6"></div>
-          <div class="flex grid grid-cols-2 gap-x-12 gap-y-8 text-sm">
+          <div class="w-full max-w-xs h-px bg-white/20 mb-6"></div>
+          <div class="grid grid-cols-2 gap-x-6 sm:gap-x-10 lg:gap-x-12 gap-y-6 text-sm">
             <div class="space-y-3">
               <a href="#" class="block text-slate-300 hover:text-white transition-colors"
                 >Resources</a
@@ -27,7 +27,7 @@
                 >Integrations</a
               >
             </div>
-            <div class="space-y-3 -ml-10">
+            <div class="space-y-3">
               <a href="#" class="block text-slate-300 hover:text-white transition-colors">
                 Quick Links
               </a>
@@ -48,7 +48,7 @@
         <!-- Free Tools -->
         <div class="lg:col-span-3">
           <h3 class="text-white font-semibold text-lg tracking-wide mb-2">Free Tools</h3>
-          <div class="w-60 h-px bg-gray-50/30 mb-6"></div>
+          <div class="w-full max-w-[240px] h-px bg-white/20 mb-6"></div>
           <div class="space-y-3 text-sm">
             <a href="#" class="block text-slate-300 hover:text-white transition-colors"
               >Free Invoice Templates</a
@@ -76,19 +76,19 @@
 
         <!-- Contact Us -->
         <div class="lg:col-span-4">
-          <h3 class="text-white font-semibold text-lg tracking-wide mb-2">CONTACT US ON</h3>
+          <h3 class="text-lg lg:text-xl font-semibold tracking-wide mb-2">CONTACT US ON</h3>
           <div class="w-60 h-px bg-gray-50/30 mb-6"></div>
-          <div class="space-y-8">
+          <div class="space-y-8 text-left">
             <!-- Phone -->
             <div class="flex items-start gap-3">
               <div
-                class="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0"
+                class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0"
               >
                 <i class="fa-solid fa-phone text-xl"></i>
               </div>
               <div>
                 <p class="text-sm text-gray-400">Monday - Friday</p>
-                <p class="font-medium">Toll-free</p>
+                <p class="font-medium">08132822731 & 08089224449</p>
               </div>
             </div>
 
@@ -100,7 +100,7 @@
                 <i class="fa-solid fa-envelope text-xl"></i>
               </div>
               <div>
-                <p class="font-medium">Email Us</p>
+                <p class="font-medium">te@teinnovatecapitl.ng</p>
                 <p class="text-sm text-gray-400">Toll-free</p>
               </div>
             </div>
@@ -108,14 +108,20 @@
             <!-- Socials -->
             <div>
               <p class="text-sm font-medium mb-3">FIND US ON OUR SOCIALS</p>
-              <div class="flex gap-5 text-2xl">
-                <a href="#" class="hover:text-blue-400 transition-colors"
+              <div class="flex flex-wrap gap-5 text-2xl">
+                <a
+                  href="https://x.com/teinnovate27311?s=21"
+                  class="hover:text-blue-400 transition-colors"
                   ><i class="fa-brands fa-x-twitter"></i
                 ></a>
-                <a href="#" class="hover:text-blue-400 transition-colors"
+                <a
+                  href="https://www.instagram.com/teinnovatecapital_?igsh=bDNscWo4bzh1c3po"
+                  class="hover:text-blue-400 transition-colors"
                   ><i class="fa-brands fa-instagram"></i
                 ></a>
-                <a href="#" class="hover:text-blue-400 transition-colors"
+                <a
+                  href="https://www.linkedin.com/company/teinnovate-capital/"
+                  class="hover:text-blue-400 transition-colors"
                   ><i class="fa-brands fa-linkedin"></i
                 ></a>
                 <a href="#" class="hover:text-blue-400 transition-colors"
@@ -131,7 +137,7 @@
       <div class="mt-16 pt-8">
         <div class="w-full h-px bg-gray-50/30 mb-6"></div>
         <div
-          class="flex flex-wrap gap-x-6 gap-y-2 text-xs text-gray-400 justify-center md:justify-start"
+          class="flex flex-wrap justify-center lg:justify-start gap-x-5 gap-y-3 text-xs text-gray-400 leading-6"
         >
           <a href="#" class="hover:text-white transition-colors">Contacts</a>
           <a href="#" class="hover:text-white transition-colors">Security</a>
