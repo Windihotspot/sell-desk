@@ -21,7 +21,7 @@ const toggleMobileMenu = () => {
        <img src="/logo.png" alt="Selldesk Logo" class="h-12 w-auto ml-9" />
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-8 text-gray-700 font-sm">
+      <nav class="hidden md:flex items-center gap-5 text-gray-700 text-sm font-sm ml-7">
         <a href="#" class="hover:text-blue-600 transition-colors">Features</a>
         <a href="#" class="hover:text-blue-600 transition-colors">Pricing</a>
         <a href="#" class="hover:text-blue-600 transition-colors">Integrations</a>
