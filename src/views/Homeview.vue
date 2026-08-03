@@ -3,6 +3,8 @@ import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
 
 import { reactive } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+import invoiceImage from '../assets/img/invoice.png'
 
 const form = reactive({
   companyName: '',
@@ -35,6 +37,48 @@ const features = [
     description: 'Tracks payments and revenue in real-time.'
   }
 ]
+
+// drop your invoice template image paths in here, e.g. '../assets/img/template-1.png'
+// const slides = ref([
+//   { src: '../assets/img/icons/invoice.png', alt: '' },
+//   { src: '../assets/img/invoice.png', alt: '' },
+//   { src: '../assets/img/invoice.png', alt: '' }
+// ])
+
+const slides = ref([
+  {
+    src: invoiceImage,
+    alt: 'Invoice icon'
+  },
+  {
+    src: invoiceImage,
+    alt: 'Invoice preview'
+  },
+  {
+    src: invoiceImage,
+    alt: 'Invoice preview'
+  }
+])
+
+const active = ref(0)
+let timer = null
+
+function goTo(index) {
+  active.value = index
+}
+function next() {
+  active.value = (active.value + 1) % slides.value.length
+}
+function prev() {
+  active.value = (active.value - 1 + slides.value.length) % slides.value.length
+}
+
+onMounted(() => {
+  timer = setInterval(next, 4000)
+})
+onUnmounted(() => {
+  clearInterval(timer)
+})
 </script>
 
 <template>
@@ -175,14 +219,14 @@ const features = [
         <!-- image wrapper controls the sizing everything else is pinned to -->
         <div class="relative w-[280px] sm:w-[340px] lg:w-[400px]">
           <img
-            src="../assets/img/hero-mockup.png"
+            src="../assets/img/hero.png"
             alt="SellDesk invoicing app on a phone"
             class="w-full h-[60vh] object-contain drop-shadow-xl transition-opacity duration-700"
           />
 
           <!-- floating card: paid -->
           <div
-            class="absolute top-[8%] -left-4 sm:-left-8 lg:-left-10 bg-white rounded-xl shadow-lg px-3.5 py-2.5 w-36 sm:w-40"
+            class="absolute top-[5%] -left-14 sm:-left-20 lg:-left-20 bg-white rounded-xl shadow-lg px-3.5 py-2.5 w-36 sm:w-40"
           >
             <div class="flex items-center gap-1.5">
               <span
@@ -197,7 +241,7 @@ const features = [
 
           <!-- floating card: sent -->
           <div
-            class="absolute top-[16%] -right-3 sm:-right-6 lg:-right-8 bg-white rounded-xl shadow-lg px-3.5 py-2.5 w-28 sm:w-32"
+            class="absolute top-[12%] -right-14 sm:-right-6 lg:-right-8 bg-white rounded-xl shadow-lg px-3.5 py-2.5 w-28 sm:w-32"
           >
             <div class="flex items-center gap-1.5">
               <span class="text-[11px]">📤</span>
@@ -209,7 +253,7 @@ const features = [
 
           <!-- floating card: whatsapp -->
           <div
-            class="absolute bottom-[14%] -left-6 sm:-left-10 lg:-left-12 bg-white rounded-xl shadow-lg px-3.5 py-2.5 w-36 sm:w-40"
+            class="absolute bottom-[14%] -left-12 sm:-left-14 lg:-left-20 bg-white rounded-xl shadow-lg px-3.5 py-2.5 w-36 sm:w-40"
           >
             <div class="flex items-center gap-1.5">
               <span class="text-[11px]">💬</span>
@@ -245,6 +289,103 @@ const features = [
     <p class="text-center font-bold text-slate-900 mt-8">Trusted by business across Nigeria</p>
   </section>
 
+  <!--Invoice Template Section-->
+
+  <section class="bg-gradient-to-br from-emerald-50 via-slate-50 to-white py-16 lg:py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- LEFT: copy (leaving space for your content) -->
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0b2540] leading-snug">
+            Invoice Templates That Make You Look Professional
+          </h2>
+
+          <div class="flex items-center gap-4 mt-8">
+            <span
+              class="w-12 h-12 shrink-0 rounded-full bg-orange-50 flex items-center justify-center"
+            >
+              <svg class="w-6 h-6 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
+                <ellipse cx="12" cy="5" rx="8" ry="3" />
+                <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5" opacity=".6" />
+                <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" opacity=".3" />
+              </svg>
+            </span>
+            <h3 class="text-xl font-extrabold text-[#0b2540]">Multiple Templates</h3>
+          </div>
+
+          <div class="flex items-center gap-4 mt-6">
+            <span
+              class="w-12 h-12 shrink-0 rounded-full bg-sky-50 flex items-center justify-center"
+            >
+              <svg
+                class="w-6 h-6 text-sky-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path stroke-linecap="round" d="M4 7h9M4 17h7" />
+                <circle cx="16" cy="7" r="2" fill="currentColor" stroke="none" />
+                <circle cx="14" cy="17" r="2" fill="currentColor" stroke="none" />
+              </svg>
+            </span>
+            <h3 class="text-xl font-extrabold text-[#0b2540]">Flexible Customization</h3>
+          </div>
+
+          <button
+            class="mt-8 bg-[#0b2540] hover:bg-[#0a1f36] transition-colors text-white text-sm font-semibold px-8 py-4 rounded-xl"
+          >
+            Create Invoice
+          </button>
+        </div>
+
+        <!-- RIGHT: slideshow -->
+        <div class="relative">
+          <div class="relative w-full h-72 sm:h-96 rounded-xl overflow-hidden bg-white py-4 shadow-lg">
+            <!-- Sliding track -->
+            <div
+              class="flex h-full transition-transform duration-700 ease-in-out"
+              :style="{
+                transform: `translateX(-${active * 100}%)`
+              }"
+            >
+              <div v-for="(slide, i) in slides" :key="i" class="w-full h-full flex-shrink-0">
+                <img :src="slide.src" :alt="slide.alt" class="w-full h-full object-contain" />
+              </div>
+            </div>
+
+            <!-- Previous arrow -->
+            <button
+              @click="prev"
+              class="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/90 shadow flex items-center justify-center text-slate-600 hover:bg-white z-10"
+            >
+              ‹
+            </button>
+
+            <!-- Next arrow -->
+            <button
+              @click="next"
+              class="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/90 shadow flex items-center justify-center text-slate-600 hover:bg-white z-10"
+            >
+              ›
+            </button>
+          </div>
+
+          <!-- Dots -->
+          <div class="flex justify-center gap-2 mt-4">
+            <button
+              v-for="(slide, i) in slides"
+              :key="i"
+              @click="goTo(i)"
+              class="w-2 h-2 rounded-full transition-colors"
+              :class="i === active ? 'bg-[#0b2540]' : 'bg-slate-300'"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!--Card Section-->
 
   <section class="bg-[#f4f7fb] py-16 lg:py-20">
@@ -253,7 +394,7 @@ const features = [
         <!-- LEFT: product image (drop your image here) -->
         <div class="flex justify-center lg:justify-start">
           <img
-            src="../assets/img/card-section.png"
+            src="../assets/img/laptop-phone.png"
             alt="SellDesk dashboard and mobile app"
             class="w-full max-w-xl h-auto object-contain"
           />
@@ -423,7 +564,7 @@ const features = [
           <div class="absolute -inset-16 bg-emerald-400/10 blur-3xl rounded-full -z-10"></div>
 
           <img
-            src="../assets/img/hero-mockup.png"
+            src="../assets/img/hero.png"
             alt="SellDesk payment screen on a phone"
             class="w-full max-w-sm h-auto object-contain"
           />
@@ -545,5 +686,14 @@ const features = [
     repeating-linear-gradient(90deg, #111 0 3px, transparent 3px 6px);
   background-size: 6px 6px;
   background-blend-mode: multiply;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
