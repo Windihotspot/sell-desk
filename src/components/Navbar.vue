@@ -20,7 +20,11 @@ const toggleMobileMenu = () => {
       class="max-w-screen-2xl mx-auto h-16 lg:h-20 px-4 sm:px-6 lg:px-10 flex items-center justify-between"
     >
       <!-- Logo -->
-      <img src="/logo.png" alt="Selldesk Logo" class="h-10 sm:h-11 lg:h-12 w-auto flex-shrink-0" />
+      <img
+        src="/logo.png"
+        alt="Selldesk Logo"
+        class="h-10 sm:h-11 lg:h-12 w-auto flex-shrink-0 -ml-20"
+      />
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center gap-8 text-gray-700 font-sm">
@@ -202,17 +206,15 @@ const toggleMobileMenu = () => {
             </div>
 
             <!-- Actions -->
-            <div class="border-t mt-8 pt-6 space-y-4">
+            <div class="border-t mt-8 pt-6 space-y-10">
               <button class="flex items-center gap-3 text-slate-700">🔍 Search</button>
 
               <button class="flex items-center gap-3 text-slate-700">🌐 English</button>
 
               <a href="#" class="block text-blue-600 font-semibold"> Sign In </a>
-
-              <a
-                href="#"
-                class="block bg-[#053758] text-white rounded-full py-3 text-center font-semibold"
-              >
+            </div>
+            <div class="-mr-10 flex justify-end">
+              <a href="#" class="bg-[#053758] text-white rounded-full px-6 py-3 font-semibold">
                 Sign Up For Free
               </a>
             </div>

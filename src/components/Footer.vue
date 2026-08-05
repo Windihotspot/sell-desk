@@ -4,7 +4,7 @@
       <!-- Main Footer Content -->
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-12 gap-10 lg:gap-12">
         <!-- Help & Resources -->
-        <div class="xl:col-span-5">
+        <div class="xl:col-span-5 -ml-20">
           <h3 class="text-white font-semibold text-lg tracking-wide mb-2">Help & Resources</h3>
           <div class="w-full max-w-xs h-px bg-white/20 mb-6"></div>
           <div class="grid grid-cols-2 gap-x-6 sm:gap-x-10 lg:gap-x-12 gap-y-6 text-sm">
@@ -27,7 +27,7 @@
                 >Integrations</a
               >
             </div>
-            <div class="space-y-3">
+            <div class="space-y-3 -ml-20">
               <a href="#" class="block text-slate-300 hover:text-white transition-colors">
                 Quick Links
               </a>
@@ -46,7 +46,7 @@
         </div>
 
         <!-- Free Tools -->
-        <div class="lg:col-span-3">
+        <div class="lg:col-span-3 -ml-14">
           <h3 class="text-white font-semibold text-lg tracking-wide mb-2">Free Tools</h3>
           <div class="w-full max-w-[240px] h-px bg-white/20 mb-6"></div>
           <div class="space-y-3 text-sm">
