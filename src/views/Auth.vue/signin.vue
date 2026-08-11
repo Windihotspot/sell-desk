@@ -168,12 +168,14 @@
           </div>
 
           <!-- Submit -->
-          <button
-            type="submit"
-            class="w-full h-[51px] rounded-[11px] text-white font-black bg-gradient-to-r from-[#1e63f2] to-[#1554d8] shadow-[0_12px_24px_#1e63f226] hover:brightness-105 active:scale-[0.99] transition"
-          >
-            Sign in to SellDesk →
-          </button>
+          <form @submit.prevent="handleLogin">
+            <button
+              type="submit"
+              class="w-full h-[51px] rounded-[11px] text-white font-black bg-gradient-to-r from-[#1e63f2] to-[#1554d8] shadow-[0_12px_24px_#1e63f226] hover:brightness-105 active:scale-[0.99] transition"
+            >
+              Sign in to SellDesk →
+            </button>
+          </form>
         </form>
 
         <!-- Divider -->
@@ -223,6 +225,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const email = ref('')
 const password = ref('')
@@ -245,6 +248,14 @@ function showToast(message) {
 function handleSubmit() {
   showToast('Demo login submitted — connect your authentication API here.')
   // TODO: call your auth API
+}
+
+const router = useRouter()
+
+const handleLogin = async () => {
+  // your login logic here
+
+  router.push('/dashboard')
 }
 </script>
 
