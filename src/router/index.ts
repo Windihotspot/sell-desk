@@ -18,7 +18,7 @@ import Payments from '@/views/MainDashboard/finance/payments.vue'
 import Settings from '@/views/MainDashboard/System/Settings.vue'
 import Clients from '@/views/MainDashboard/finance/Clients.vue'
 import PaywithSplit from '@/views/MainDashboard/finance/PaywithSplit.vue'
-import FullInvoice from '@/views/MainDashboard/finance/fullInvoice.vue'
+import FullInvoice from '@/views/MainDashboard/finance/FullInvoice.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
