@@ -145,14 +145,14 @@ const toggleResourcesDropdown = () => {
 
         <span class="text-sm text-slate-700">English</span>
 
-        <router-link to="/signin" class="text-sm font-semibold text-blue-600 hover:text-blue-700">
-          sign in
+        <router-link to="/signup" class="text-sm font-semibold text-blue-600 hover:text-blue-700">
+          sign up
         </router-link>
         <router-link
-          to="/signup"
+          to="/signin"
           class="bg-[#053758] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-slate-800 transition-colors"
         >
-          sign up
+          sign In
         </router-link>
       </div>
 
@@ -377,20 +377,20 @@ const toggleResourcesDropdown = () => {
               </button>
 
               <a
-                href="/signin"
+                href="/signup"
                 class="block px-3 py-3 rounded-lg text-blue-600 font-semibold hover:bg-blue-50 transition-colors"
               >
-                Sign In
+                Sign up for free
               </a>
             </div>
 
             <!-- Sign Up Button -->
             <div class="mt-6 pt-2 pb-2">
               <a
-                href="/signup"
+                href="/signin"
                 class="block w-full text-center bg-[#053758] hover:bg-[#042a44] active:bg-[#031f33] text-white rounded-full px-6 py-3.5 font-semibold transition-colors shadow-sm"
               >
-                Sign Up For Free
+                Sign In
               </a>
             </div>
           </div>

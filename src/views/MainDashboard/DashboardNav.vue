@@ -1,3 +1,54 @@
+<script setup>
+import { ref } from 'vue'
+
+// =====================================================
+// STATE
+// =====================================================
+const currentView = ref('home')
+const sidebarOpen = ref(false)
+const globalSearchQuery = ref('')
+
+// =====================================================
+// METHODS
+// =====================================================
+const go = (view) => {
+  currentView.value = view
+  sidebarOpen.value = false
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+const navItemClass = (view) => {
+  const base =
+    'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-[13.5px] font-medium transition-all duration-200'
+
+  if (currentView.value === view) {
+    return `${base} bg-blue-50 text-blue-700 shadow-sm`
+  }
+  return `${base} text-slate-600 hover:bg-slate-50 hover:text-slate-900`
+}
+
+const doGlobalSearch = () => {
+  // You can expand this later
+  console.log('Searching for:', globalSearchQuery.value)
+}
+
+const showAccountMenu = ref(false)
+
+const toggleAccountMenu = () => {
+  showAccountMenu.value = !showAccountMenu.value
+}
+
+const switchAccount = () => {
+  // Add your switch-account logic here
+  console.log('Switch account')
+}
+
+const logout = () => {
+  // Add your logout logic here
+  console.log('Logout')
+}
+</script>
+
 <template>
   <!-- ===================== OVERLAY (Mobile) ===================== -->
   <div
@@ -235,28 +286,60 @@
   </aside>
 
   <!-- ===================== TOP NAVBAR ===================== -->
+  <!-- ===================== TOP NAVBAR ===================== -->
+
   <header
-    class="fixed top-0 right-0 left-0 md:left-[260px] h-16 bg-white/80 backdrop-blur-md border-b border-slate-200 z-50 flex items-center justify-between px-4 md:px-6"
+    class="fixed top-0 right-0 left-0 md:left-[260px] h-16 bg-white/80 backdrop-blur-md border-b border-slate-200 z-[110] flex items-center justify-between px-4 md:px-6"
   >
     <!-- Left: Hamburger + Page Title -->
     <div class="flex items-center gap-3">
+      <!-- Mobile Hamburger -->
       <button
-        @click="sidebarOpen = !sidebarOpen"
-        class="md:hidden w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 transition"
+        type="button"
+        @click.stop="sidebarOpen = !sidebarOpen"
+        class="md:hidden w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 active:bg-slate-100 transition"
+        aria-label="Toggle navigation menu"
+        :aria-expanded="sidebarOpen"
       >
-        <span class="text-xl">☰</span>
+        <svg
+          v-if="!sidebarOpen"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+
+        <svg
+          v-else
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
       </button>
 
+      <!-- Page Title -->
       <div class="hidden sm:block">
-        <h1 class="text-[15px] font-bold text-slate-800 capitalize">
-          {{ currentView === 'home' ? 'Dashboard' : currentView }}
-        </h1>
+        <img
+          src="/logo.png"
+          alt="Selldesk Logo"
+          class="h-4 sm:h-5 md:h-6 lg:h-12 xl:h-14 w-auto ml-5"
+        />
       </div>
     </div>
 
     <!-- Center: Search -->
+
     <div class="flex-1 max-w-md mx-4 hidden md:block">
-      <div class="relative">
+      <!-- <div class="relative">
         <input
           v-model="globalSearchQuery"
           @keyup.enter="doGlobalSearch"
@@ -264,20 +347,27 @@
           placeholder="Search invoices, payments, customers..."
           class="w-full h-10 pl-10 pr-4 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition"
         />
-        <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm">⌕</span>
-      </div>
+
+        <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"> ⌕ </span>
+      </div> -->
     </div>
 
     <!-- Right: Actions -->
+
     <div class="flex items-center gap-2">
+      <!-- Notification -->
       <button
+        type="button"
         class="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-slate-50 transition relative"
       >
         <span class="text-lg">🔔</span>
+
         <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
       </button>
 
+      <!-- New Invoice -->
       <button
+        type="button"
         @click="go('quick')"
         class="hidden sm:flex items-center gap-2 h-10 px-4 rounded-xl bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition shadow-sm"
       >
@@ -287,54 +377,3 @@
     </div>
   </header>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-
-// =====================================================
-// STATE
-// =====================================================
-const currentView = ref('home')
-const sidebarOpen = ref(false)
-const globalSearchQuery = ref('')
-
-// =====================================================
-// METHODS
-// =====================================================
-const go = (view) => {
-  currentView.value = view
-  sidebarOpen.value = false
-  window.scrollTo({ top: 0, behavior: 'smooth' })
-}
-
-const navItemClass = (view) => {
-  const base =
-    'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-[13.5px] font-medium transition-all duration-200'
-
-  if (currentView.value === view) {
-    return `${base} bg-blue-50 text-blue-700 shadow-sm`
-  }
-  return `${base} text-slate-600 hover:bg-slate-50 hover:text-slate-900`
-}
-
-const doGlobalSearch = () => {
-  // You can expand this later
-  console.log('Searching for:', globalSearchQuery.value)
-}
-
-const showAccountMenu = ref(false)
-
-const toggleAccountMenu = () => {
-  showAccountMenu.value = !showAccountMenu.value
-}
-
-const switchAccount = () => {
-  // Add your switch-account logic here
-  console.log('Switch account')
-}
-
-const logout = () => {
-  // Add your logout logic here
-  console.log('Logout')
-}
-</script>

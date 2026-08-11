@@ -1,6 +1,5 @@
-
 <script setup>
-import { ref,computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const isMobileMenuOpen = ref(false)
 const openDropdown = ref(null)
@@ -42,15 +41,14 @@ const toggleResourcesDropdown = () => {
   showCompanyDropdown.value = false
 }
 
-
 const products = [
-  {
-    name: 'Payment Widget',
-    short: 'Accept payments wherever customers are.',
-    desc: 'Accept payments directly through your website, school portal or e-commerce store with a seamless checkout experience.',
-    features: ['Website checkout', 'Payment notifications', 'Simple integration'],
-    type: 'widget'
-  },
+  // {
+  //   name: 'Payment Widget',
+  //   short: 'Accept payments wherever customers are.',
+  //   desc: 'Accept payments directly through your website, school portal or e-commerce store with a seamless checkout experience.',
+  //   features: ['Website checkout', 'Payment notifications', 'Simple integration'],
+  //   type: 'widget'
+  // },
   {
     name: 'SellDesk',
     short: 'Create invoices. Get paid. Stay in control.',
@@ -64,21 +62,21 @@ const products = [
     desc: 'Let customers divide a bill and pay their individual share without one person having to front the entire amount.',
     features: ['Split bills', 'QR-first flow', 'Individual payments'],
     type: 'split'
-  },
-  {
-    name: 'Pay4Me',
-    short: 'Let someone else pay — without losing the sale.',
-    desc: 'Customers can securely request payment from a parent, sponsor, friend or business partner through a QR code or payment request.',
-    features: ['QR payment request', 'Secure delegation', 'Instant confirmation'],
-    type: 'pay4me'
-  },
-  {
-    name: 'CreditList',
-    short: 'Make installment payments easier to manage.',
-    desc: 'Set payment schedules, track outstanding balances and reduce manual follow-ups for schools, hospitals and other organizations.',
-    features: ['Payment schedules', 'Outstanding balances', 'Reminders'],
-    type: 'credit'
   }
+  // {
+  //   name: 'Pay4Me',
+  //   short: 'Let someone else pay — without losing the sale.',
+  //   desc: 'Customers can securely request payment from a parent, sponsor, friend or business partner through a QR code or payment request.',
+  //   features: ['QR payment request', 'Secure delegation', 'Instant confirmation'],
+  //   type: 'pay4me'
+  // },
+  // {
+  //   name: 'CreditList',
+  //   short: 'Make installment payments easier to manage.',
+  //   desc: 'Set payment schedules, track outstanding balances and reduce manual follow-ups for schools, hospitals and other organizations.',
+  //   features: ['Payment schedules', 'Outstanding balances', 'Reminders'],
+  //   type: 'credit'
+  // }
 ]
 
 const active = ref(0)
@@ -105,9 +103,7 @@ onMounted(() => {
 onUnmounted(() => {
   clearInterval(timer)
 })
-
 </script>
-
 
 <template>
   <header class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -752,4 +748,3 @@ onUnmounted(() => {
     </div>
   </section>
 </template>
-
