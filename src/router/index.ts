@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/Homeview.vue'
-import Features from '@/components/NavbarComponent.vue/features.vue'
-import Pricing from '@/components/NavbarComponent.vue/Pricing.vue'
+// import Features from '@/components/NavbarComponent.vue/features.vue'
+// import Pricing from '@/components/NavbarComponent.vue/Pricing.vue'
 import Integrations from '@/components/NavbarComponent.vue/Integrations.vue'
 import Download from '@/components/NavbarComponent.vue/Download.vue'
 import AboutTeinnovate from '@/components/NavbarComponent.vue/AboutTeinnovate.vue'
@@ -28,16 +28,16 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
-    {
-      path: '/features',
-      name: 'features',
-      component: Features
-    },
-    {
-      path: '/pricing',
-      name: 'pricing',
-      component: Pricing
-    },
+    // {
+    //   path: '/features',
+    //   name: 'features',
+    //   component: Features
+    // },
+    // {
+    //   path: '/pricing',
+    //   name: 'pricing',
+    //   component: Pricing
+    // },
     {
       path: '/integrations',
       name: 'integrations',
