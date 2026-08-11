@@ -18,7 +18,7 @@ import Payments from '@/views/MainDashboard/finance/payments.vue'
 import Settings from '@/views/MainDashboard/System/Settings.vue'
 import Clients from '@/views/MainDashboard/finance/Clients.vue'
 import PaywithSplit from '@/views/MainDashboard/finance/PaywithSplit.vue'
-import Fullinvoice from '@/views/MainDashboard/finance/fullinvoice.vue'
+import FullInvoice from '@/views/MainDashboard/finance/fullInvoice.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -99,7 +99,7 @@ const router = createRouter({
     {
       path: '/fullinvoice',
       name: 'fullinvoice',
-      component: Fullinvoice
+      component: FullInvoice
     },
 
     {
