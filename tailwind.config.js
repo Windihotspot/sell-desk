@@ -1,19 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 import daisyui from 'daisyui'
-import defaultTheme from "tailwindcss/defaultTheme";
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default {
-  plugins: [require('@tailwindcss/forms')],
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   presets: [],
   darkMode: 'media', // or 'class'
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Sora", ...defaultTheme.fontFamily.sans],
-    },
+        sans: ['Sora', ...defaultTheme.fontFamily.sans]
+      },
       colors: {
-        tomatoColor: '#ff6347' 
+        tomatoColor: '#ff6347'
       }
     },
     screens: {
@@ -976,5 +975,5 @@ export default {
     'active',
     'disabled'
   ],
-  plugins: [daisyui]
+  plugins: [require('@tailwindcss/forms')]
 }

@@ -56,15 +56,15 @@ const toggleResourcesDropdown = () => {
       </div>
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center gap-8 text-gray-700 font-sm">
-        <router-link to="/features" class="hover:text-blue-600 transition-colors">
+        <!-- <router-link to="/features" class="hover:text-blue-600 transition-colors">
           Features
         </router-link>
         <router-link to="/pricing" class="hover:text-blue-600 transition-colors">
           Pricing
-        </router-link>
-        <router-link to="/integrations" class="hover:text-blue-600 transition-colors">
+        </router-link> -->
+        <!-- <router-link to="/integrations" class="hover:text-blue-600 transition-colors">
           Integrations
-        </router-link>
+        </router-link> -->
         <router-link to="/download" class="hover:text-blue-600 transition-colors">
           Download
         </router-link>
@@ -145,14 +145,14 @@ const toggleResourcesDropdown = () => {
 
         <span class="text-sm text-slate-700">English</span>
 
-        <router-link to="/signin" class="text-sm font-semibold text-blue-600 hover:text-blue-700">
-          sign in
-        </router-link>
+        <!-- <router-link to="/signup" class="text-sm font-semibold text-blue-600 hover:text-blue-700">
+          sign up
+        </router-link> -->
         <router-link
-          to="/signup"
+          to="/signin"
           class="bg-[#053758] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-slate-800 transition-colors"
         >
-          sign up
+          sign In
         </router-link>
       </div>
 
@@ -237,24 +237,24 @@ const toggleResourcesDropdown = () => {
           <div class="flex-1 overflow-y-auto overscroll-contain px-4 sm:px-6 py-5 sm:py-6">
             <!-- Main Links -->
             <nav class="flex flex-col gap-1 text-slate-700 font-medium">
-              <router-link
+              <!-- <router-link
                 to="/features"
                 class="px-3 py-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors"
               >
                 Features
-              </router-link>
-              <router-link
+              </router-link> -->
+              <!-- <router-link
                 to="/pricing"
                 class="px-3 py-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors"
               >
                 Pricing
-              </router-link>
-              <router-link
+              </router-link> -->
+              <!-- <router-link
                 to="/integrations"
                 class="px-3 py-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors"
               >
                 Integrations
-              </router-link>
+              </router-link> -->
               <router-link
                 to="/download"
                 class="px-3 py-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors"
@@ -377,20 +377,20 @@ const toggleResourcesDropdown = () => {
               </button>
 
               <a
-                href="/signin"
+                href="/signup"
                 class="block px-3 py-3 rounded-lg text-blue-600 font-semibold hover:bg-blue-50 transition-colors"
               >
-                Sign In
+                Sign up for free
               </a>
             </div>
 
             <!-- Sign Up Button -->
             <div class="mt-6 pt-2 pb-2">
               <a
-                href="/signup"
+                href="/signin"
                 class="block w-full text-center bg-[#053758] hover:bg-[#042a44] active:bg-[#031f33] text-white rounded-full px-6 py-3.5 font-semibold transition-colors shadow-sm"
               >
-                Sign Up For Free
+                Sign In
               </a>
             </div>
           </div>
