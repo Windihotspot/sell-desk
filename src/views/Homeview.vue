@@ -573,6 +573,8 @@ onUnmounted(() => {
     </div>
   </section>
 
+  <!--Add features section here-->
+
   <!--Free invoiving everywhere-->
 
   <section class="bg-white py-16 lg:py-20">
