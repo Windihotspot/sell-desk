@@ -86,13 +86,6 @@ onUnmounted(() => {
 
 const products = [
   {
-    name: 'Payment Widget',
-    short: 'Accept payments wherever customers are.',
-    desc: 'Accept payments directly through your website, school portal or e-commerce store with a seamless checkout experience.',
-    features: ['Website checkout', 'Payment notifications', 'Simple integration'],
-    type: 'widget'
-  },
-  {
     name: 'SellDesk',
     short: 'Create invoices. Get paid. Stay in control.',
     desc: 'Create and send professional electronic invoices, track payment status and reduce manual payment follow-ups.',
@@ -112,13 +105,6 @@ const products = [
     desc: 'Customers can securely request payment from a parent, sponsor, friend or business partner through a QR code or payment request.',
     features: ['QR payment request', 'Secure delegation', 'Instant confirmation'],
     type: 'pay4me'
-  },
-  {
-    name: 'CreditList',
-    short: 'Make installment payments easier to manage.',
-    desc: 'Set payment schedules, track outstanding balances and reduce manual follow-ups for schools, hospitals and other organizations.',
-    features: ['Payment schedules', 'Outstanding balances', 'Reminders'],
-    type: 'credit'
   }
 ]
 
@@ -169,30 +155,18 @@ const currentProduct = computed(() => products[active.value])
         </p>
 
         <form class="mt-6 space-y-3 max-w-md" @submit.prevent="handleSubmit">
-          <!-- <input
-            v-model="form.companyName"
-            type="text"
-            placeholder="Company Name"
-            class="w-full px-4 py-3 rounded-lg border border-slate-200 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500"
-          /> -->
           <input
-            v-model="form.email"
+            
             type="email"
             placeholder="Email Address"
-            class="w-full px-4 py-3 rounded-lg border border-slate-200 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500"
+            class="w-full px-4 py-3 rounded-lg border border-slate-400 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500"
           />
-          <!-- <input
-            v-model="form.password"
-            type="password"
-            placeholder="Password"
-            class="w-full px-4 py-3 rounded-lg border border-slate-200 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500"
-          /> -->
 
-          <label class="flex items-start gap-2 text-xs text-slate-500 pt-1">
+          <label class="flex items-start gap-2 text-xs text-slate-500 pt-1 mb-2 ">
             <input
-              v-model="form.agreed"
+              
               type="checkbox"
-              class="mt-0.5 rounded border-slate-300 text-teal-600 focus:ring-teal-500"
+              class="mt-0.5 rounded-lg border border-slate-400 text-teal-600 focus:ring-teal-500"
             />
             <span>
               I agree to the
@@ -202,58 +176,12 @@ const currentProduct = computed(() => products[active.value])
             </span>
           </label>
 
-          <p class="text-xs text-slate-400">
-            Your data will be in US data center.
-            <a href="#" class="underline text-slate-500">Select Country</a>
-          </p>
-
           <button
             type="submit"
             class="w-full bg-[#0b2540] hover:bg-[#0a1f36] transition-colors text-white text-sm font-semibold py-3.5 rounded-lg"
           >
             Create Free Account
           </button>
-
-          <!-- <div class="flex items-center gap-3 pt-1">
-            <span class="text-xs text-slate-400 whitespace-nowrap">Or sign in using</span>
-            <div class="flex items-center gap-3 text-slate-400">
-              <button
-                type="button"
-                title="Google"
-                class="w-4 h-4 flex items-center justify-center text-[13px] font-bold hover:text-slate-600"
-              >
-                G
-              </button>
-              <button
-                type="button"
-                title="Facebook"
-                class="w-4 h-4 flex items-center justify-center text-[13px] font-bold hover:text-slate-600"
-              >
-                f
-              </button>
-              <button
-                type="button"
-                title="X"
-                class="w-4 h-4 flex items-center justify-center text-[13px] font-bold hover:text-slate-600"
-              >
-                X
-              </button>
-              <button
-                type="button"
-                title="Microsoft"
-                class="w-4 h-4 flex items-center justify-center text-[13px] font-bold hover:text-slate-600"
-              >
-                M
-              </button>
-              <button
-                type="button"
-                title="LinkedIn"
-                class="w-4 h-4 flex items-center justify-center text-[13px] font-bold hover:text-slate-600"
-              >
-                in
-              </button>
-            </div>
-          </div> -->
         </form>
       </div>
 
@@ -622,9 +550,9 @@ const currentProduct = computed(() => products[active.value])
   <section class="relative overflow-hidden py-20 md:py-28 px-6 bg-white">
     <!-- Background decorations -->
     <div class="absolute inset-0 pointer-events-none">
-      <div
+      <!-- <div
         class="absolute w-[620px] h-[620px] border border-[#0b2540]/10 rounded-full -right-64 -top-64"
-      ></div>
+      ></div> -->
       <div
         class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_8%_20%,rgba(11,37,64,0.08),transparent_28%),radial-gradient(circle_at_92%_80%,rgba(104,173,18,0.10),transparent_30%)]"
       ></div>
@@ -681,9 +609,9 @@ const currentProduct = computed(() => products[active.value])
             </div>
           </button>
 
-          <div class="mt-auto pt-3 px-3.5 text-[11px] text-slate-400 border-t border-slate-200">
+          <!-- <div class="mt-auto pt-3 px-3.5 text-[11px] text-slate-400 border-t border-slate-200">
             Auto-playing • Click any tab to pause & jump
-          </div>
+          </div> -->
         </div>
 
         <!-- Product Card -->
@@ -705,7 +633,7 @@ const currentProduct = computed(() => products[active.value])
               >
                 {{ currentProduct.name }}
               </span>
-              <span class="text-xs opacity-60">0{{ active + 1 }} / 05</span>
+              <span class="text-xs opacity-60">0{{ active + 1 }} / 03</span>
             </div>
 
             <h2 class="text-[32px] md:text-[40px] tracking-[-1.6px] mt-5 mb-2.5 font-bold">
@@ -718,7 +646,7 @@ const currentProduct = computed(() => products[active.value])
             <!-- Visual Stage -->
             <div class="min-h-[300px] flex items-center justify-center mt-5 relative">
               <!-- Payment Widget -->
-              <div v-if="currentProduct.type === 'widget'" class="w-full max-w-[610px]">
+              <!-- <div v-if="currentProduct.type === 'widget'" class="w-full max-w-[610px]">
                 <div
                   class="bg-neutral-900 rounded-t-[15px] rounded-b-[7px] p-2 pb-4 shadow-2xl transform perspective-900 rotate-x-1"
                 >
@@ -761,47 +689,34 @@ const currentProduct = computed(() => products[active.value])
                     class="h-2 w-[108%] -ml-[4%] bg-gradient-to-b from-neutral-400 to-neutral-600 rounded-b-full"
                   ></div>
                 </div>
-              </div>
+              </div> -->
 
               <!-- Invoice -->
               <div
-                v-else-if="currentProduct.type === 'invoice'"
-                class="w-[230px] bg-white text-slate-900 rounded-2xl p-4 shadow-2xl"
+                v-if="currentProduct.type === 'invoice'"
+                class="w-[230px] overflow-hidden rounded-xl bg-white shadow-2xl"
               >
-                <div class="text-lg font-black text-[#0b2540]">
-                  sell<span class="text-green-500">desk</span>@quidly
-                </div>
-                <h3 class="text-2xl text-right my-3 font-bold">INVOICE</h3>
-                <div class="h-1.5 bg-slate-100 rounded mb-2"></div>
-                <div class="text-[10px] text-slate-500">Invoice #QLY4F887411-4</div>
-                <div class="h-3 bg-green-500 rounded my-2"></div>
-                <div class="h-1.5 bg-slate-100 rounded my-2"></div>
-                <div class="h-1.5 bg-slate-100 rounded my-2"></div>
-                <div class="h-1.5 bg-slate-100 rounded w-[70%] my-2"></div>
-                <div class="mt-5 text-right font-black">Total ₦27,000.00</div>
+                <img
+                  src="@/assets/img/invoice.png"
+                  alt="Quidly Invoice"
+                  class="block w-full h-auto"
+                />
               </div>
 
               <!-- Split -->
               <div
                 v-else-if="currentProduct.type === 'split'"
-                class="w-[290px] bg-white text-slate-900 rounded-[22px] p-5 shadow-2xl"
+                class="w-[230px] overflow-hidden rounded-xl bg-white shadow-2xl"
               >
-                <h3 class="text-xl font-bold m-0">Split bill</h3>
-                <div class="text-[10px] text-slate-500">Dinner with friends</div>
-                <div class="text-3xl font-black my-4">₦60,000</div>
-                <div class="flex justify-between py-2.5 border-b border-slate-100 text-[11px]">
-                  <span>David</span><span class="text-emerald-600 font-extrabold">₦20,000 ✓</span>
-                </div>
-                <div class="flex justify-between py-2.5 border-b border-slate-100 text-[11px]">
-                  <span>Sarah</span><span class="text-emerald-600 font-extrabold">₦20,000 ✓</span>
-                </div>
-                <div class="flex justify-between py-2.5 text-[11px]">
-                  <span>Mike</span><span class="text-emerald-600 font-extrabold">₦20,000 ✓</span>
-                </div>
+                <img
+                  src="@/assets/img/paywithsplit.png"
+                  alt="Quidly Invoice"
+                  class="block w-full h-auto"
+                />
               </div>
 
               <!-- Pay4Me -->
-              <div v-else-if="currentProduct.type === 'pay4me'" class="flex gap-6 items-center">
+              <div v-else class="flex gap-6 items-center">
                 <div class="w-[145px] bg-neutral-900 rounded-[25px] p-1.5 shadow-2xl rotate-5">
                   <div class="h-[290px] bg-white rounded-[20px] overflow-hidden text-slate-900">
                     <div
@@ -842,7 +757,7 @@ const currentProduct = computed(() => products[active.value])
               </div>
 
               <!-- CreditList -->
-              <div v-else class="w-[340px] bg-white text-slate-900 rounded-[20px] p-5 shadow-2xl">
+              <!-- <div v-else class="w-[340px] bg-white text-slate-900 rounded-[20px] p-5 shadow-2xl">
                 <div class="flex justify-between items-center">
                   <h3 class="text-xl font-bold m-0">CreditList</h3>
                   <span class="text-[#0b2540] text-[10px]">Dashboard</span>
@@ -877,7 +792,7 @@ const currentProduct = computed(() => products[active.value])
                     <span>Installment 03</span><span class="text-amber-600">Pending</span>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
 
             <!-- Features -->
