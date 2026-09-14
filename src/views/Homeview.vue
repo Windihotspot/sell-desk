@@ -156,15 +156,13 @@ const currentProduct = computed(() => products[active.value])
 
         <form class="mt-6 space-y-3 max-w-md" @submit.prevent="handleSubmit">
           <input
-            
             type="email"
             placeholder="Email Address"
             class="w-full px-4 py-3 rounded-lg border border-slate-400 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500"
           />
 
-          <label class="flex items-start gap-2 text-xs text-slate-500 pt-1 mb-2 ">
+          <label class="flex items-start gap-2 text-xs text-slate-500 pt-1 mb-2">
             <input
-              
               type="checkbox"
               class="mt-0.5 rounded-lg border border-slate-400 text-teal-600 focus:ring-teal-500"
             />
@@ -201,40 +199,50 @@ const currentProduct = computed(() => products[active.value])
 
           <!-- floating card: paid -->
           <div
-            class="absolute top-[5%] -left-14 sm:-left-20 lg:-left-20 bg-white rounded-xl shadow-lg px-3.5 py-2.5 w-36 sm:w-40"
+            class="absolute top-[-2%] sm:top-[5%] -left-18 sm:-left-20 lg:-left-28 bg-white rounded-xl shadow-[0_12px_35px_rgba(0,0,0,0.12)] px-3.5 py-2.5 w-36 sm:w-40 animate-float border border-slate-100 z-20"
           >
             <div class="flex items-center gap-1.5">
               <span
-                class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] flex items-center justify-center"
-                >✓</span
+                class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] flex items-center justify-center shadow-sm"
               >
-              <span class="text-[10px] font-semibold text-slate-700">Invoce Paid</span>
+                ✓
+              </span>
+
+              <span class="text-[10px] font-semibold text-slate-700"> Invoice Paid </span>
             </div>
+
             <p class="text-sm font-extrabold text-slate-900 mt-0.5">₦125,000</p>
+
             <p class="text-[9px] text-slate-400">2 mins ago</p>
           </div>
 
           <!-- floating card: sent -->
           <div
-            class="absolute top-[12%] -right-14 sm:-right-6 lg:-right-8 bg-white rounded-xl shadow-lg px-3.5 py-2.5 w-28 sm:w-32"
+            class="absolute top-[12%] -right-14 sm:-right-14 lg:-right-18 bg-white rounded-xl shadow-[0_12px_35px_rgba(0,0,0,0.12)] px-3.5 py-2.5 w-28 sm:w-32 animate-float-delayed border border-slate-100 z-20"
           >
             <div class="flex items-center gap-1.5">
               <span class="text-[11px]">📤</span>
-              <span class="text-[10px] font-semibold text-slate-700">Invoice Sent</span>
+
+              <span class="text-[10px] font-semibold text-slate-700"> Invoice Sent </span>
             </div>
+
             <p class="text-[10px] font-semibold text-slate-800 mt-0.5">John Ltd.</p>
+
             <p class="text-[9px] text-amber-500">Pending</p>
           </div>
 
           <!-- floating card: whatsapp -->
           <div
-            class="absolute bottom-[14%] -left-12 sm:-left-14 lg:-left-20 bg-white rounded-xl shadow-lg px-3.5 py-2.5 w-36 sm:w-40"
+            class="absolute bottom-[8%] sm:bottom-[14%] -left-18 sm:-left-20 lg:-left-28 bg-white rounded-xl shadow-[0_12px_35px_rgba(0,0,0,0.12)] px-3.5 py-2.5 w-36 sm:w-40 animate-float-slow border border-slate-100 z-20"
           >
             <div class="flex items-center gap-1.5">
               <span class="text-[11px]">💬</span>
-              <span class="text-[10px] font-semibold text-slate-700">Whatsapp shared</span>
+
+              <span class="text-[10px] font-semibold text-slate-700"> Whatsapp shared </span>
             </div>
+
             <p class="text-[9px] text-slate-400 mt-0.5">Delivered</p>
+
             <p class="text-[9px] text-slate-300">Just now</p>
           </div>
         </div>
@@ -941,5 +949,52 @@ const currentProduct = computed(() => products[active.value])
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes floatDelayed {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatDelayed 4.5s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+  animation-delay: 0.4s;
 }
 </style>
