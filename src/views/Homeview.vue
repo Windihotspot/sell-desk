@@ -5,7 +5,10 @@ import Footer from '@/components/Footer.vue'
 import { reactive } from 'vue'
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import invoiceImage from '../assets/img/invoice.png'
+import CreateAccount from '@/components/auth/CreateAccount.vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const form = reactive({
   companyName: '',
   email: '',
@@ -112,21 +115,32 @@ const products = [
 // let timer = null
 
 const currentProduct = computed(() => products[active.value])
+
+function goToSignin() {
+  router.push('/login')
+}
+
+function handleSignupSuccess(result) {
+  console.log('Account created:', result)
+
+  // Optional:
+  // router.push('/login')
+}
 </script>
 
 <template>
   <Navbar />
   <!--Hero Section-->
   <main class="pt-16 lg:pt-20">
-  <section class="max-w-7xl mx-auto px-6 lg:px-10 pt-14 pb-10">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <!-- LEFT: copy + form -->
-      <div>
-        <span
-          class="inline-block bg-sky-50 text-blue-600 text-xs font-semibold tracking-wide px-3 py-1.5 rounded-md"
-        >
-          FREE INVOICING SOFTWARE
-        </span>
+    <section class="max-w-7xl mx-auto px-6 lg:px-10 pt-14 pb-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- LEFT: copy + form -->
+        <div>
+          <span
+            class="inline-block bg-sky-50 text-blue-600 text-xs font-semibold tracking-wide px-3 py-1.5 rounded-md"
+          >
+            FREE INVOICING SOFTWARE
+          </span>
 
         <h1 class="mt-5 text-5xl lg:text-[3.4rem] font-extrabold leading-[1.05] text-slate-900">
           Invoicing,<br />
@@ -183,6 +197,11 @@ const currentProduct = computed(() => products[active.value])
           </button>
         </form>
       </div>
+          <CreateAccount
+  @signin="goToSignin"
+  @success="handleSignupSuccess"
+/>
+        </div>
 
       <!-- RIGHT: phone mockup -->
       <div class="relative flex justify-center lg:justify-end">

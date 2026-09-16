@@ -139,7 +139,7 @@
                 class="w-full h-[50px] border border-[#e4e8f0] rounded-[11px] px-3.5 pr-16 outline-none text-[#101828] focus:border-[#80a7f8] focus:ring-4 focus:ring-[#1e63f211] transition"
               />
               <button
-                type="button"
+                type="submit"
                 @click="showPassword = !showPassword"
                 class="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] font-extrabold text-[#667085] hover:text-[#101828] transition"
               >
