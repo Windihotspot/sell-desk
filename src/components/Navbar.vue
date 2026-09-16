@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, watch } from "vue";
 
 const isOpen = ref(false);
 const openDropdown = ref(null);
@@ -28,7 +28,6 @@ const navItems = [
 const toggleMenu = () => {
   isOpen.value = !isOpen.value;
 
-  // Close dropdown when opening/closing mobile menu
   if (!isOpen.value) {
     openDropdown.value = null;
   }
@@ -44,12 +43,17 @@ const closeMenu = () => {
   openDropdown.value = null;
 };
 
-// Close menu when clicking outside / navigating
 const handleEscape = (event) => {
   if (event.key === "Escape") {
     closeMenu();
   }
 };
+
+// Prevent the page underneath from scrolling
+// when the mobile menu is open
+watch(isOpen, (value) => {
+  document.body.style.overflow = value ? "hidden" : "";
+});
 
 onMounted(() => {
   window.addEventListener("keydown", handleEscape);
@@ -57,11 +61,16 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener("keydown", handleEscape);
+
+  // Make sure scrolling is restored
+  document.body.style.overflow = "";
 });
 </script>
 
+
+
 <template>
-  <header class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+  <header  class="fixed top-0 left-0 right-0 w-full bg-white border-b border-gray-200 z-50">
     <nav
       class="max-w-screen-2xl mx-auto h-16 lg:h-20 px-4 sm:px-6 lg:px-10 flex items-center justify-between"
     >
