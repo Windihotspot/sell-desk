@@ -5,7 +5,10 @@ import Footer from '@/components/Footer.vue'
 import { reactive } from 'vue'
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import invoiceImage from '../assets/img/invoice.png'
+import CreateAccount from '@/components/auth/CreateAccount.vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const form = reactive({
   companyName: '',
   email: '',
@@ -112,6 +115,17 @@ const products = [
 // let timer = null
 
 const currentProduct = computed(() => products[active.value])
+
+function goToSignin() {
+  router.push('/login')
+}
+
+function handleSignupSuccess(result) {
+  console.log('Account created:', result)
+
+  // Optional:
+  // router.push('/login')
+}
 </script>
 
 <template>
@@ -155,33 +169,10 @@ const currentProduct = computed(() => products[active.value])
             business growth in a single powerful dashboard.
           </p>
 
-          <form class="mt-6 space-y-3 max-w-md" @submit.prevent="handleSubmit">
-            <input
-              type="email"
-              placeholder="Email Address"
-              class="w-full px-4 py-3 rounded-lg border border-slate-400 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500"
-            />
-
-            <label class="flex items-start gap-2 text-xs text-slate-500 pt-1 mb-2">
-              <input
-                type="checkbox"
-                class="mt-0.5 rounded-lg border border-slate-400 text-teal-600 focus:ring-teal-500"
-              />
-              <span>
-                I agree to the
-                <a href="#" class="text-teal-600 font-medium">Terms of Service</a>
-                and
-                <a href="#" class="text-teal-600 font-medium">Privacy Policy</a>
-              </span>
-            </label>
-
-            <button
-              type="submit"
-              class="w-full bg-[#0b2540] hover:bg-[#0a1f36] transition-colors text-white text-sm font-semibold py-3.5 rounded-lg"
-            >
-              Create Free Account
-            </button>
-          </form>
+          <CreateAccount
+  @signin="goToSignin"
+  @success="handleSignupSuccess"
+/>
         </div>
 
         <!-- RIGHT: phone mockup -->
