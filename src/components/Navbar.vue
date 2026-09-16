@@ -255,7 +255,7 @@ onUnmounted(() => {
     >
       <div
         v-if="isOpen"
-        class="fixed inset-0 top-16 z-50 md:hidden bg-white"
+        class="fixed top-16 left-0 right-0 bottom-0 z-50 md:hidden bg-white"
       >
         <div class="h-full overflow-y-auto px-5 py-6">
 
