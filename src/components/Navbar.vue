@@ -65,12 +65,23 @@ onUnmounted(() => {
 
 
 <template>
-  <header class="fixed inset-x-0 top-0 z-50 border-b border-gray-200 bg-white">
+  <header
+    class="fixed inset-x-0 top-0 z-50 border-b border-gray-200 bg-white"
+    data-aos="fade-down"
+    data-aos-duration="800"
+    data-aos-once="true"
+  >
     <nav
       class="mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-10"
     >
       <!-- Logo -->
-      <router-link to="/" class="shrink-0" aria-label="Selldesk home">
+      <router-link
+        to="/"
+        class="shrink-0"
+        aria-label="Selldesk home"
+        data-aos="fade-right"
+        data-aos-delay="200"
+      >
         <img
           src="../assets/img/logo.png"
           alt="Selldesk"
@@ -82,6 +93,8 @@ onUnmounted(() => {
       <router-link
         to="/signin"
         class="rounded-full bg-[#053758] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#042a44] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#053758]"
+        data-aos="fade-left"
+        data-aos-delay="300"
       >
         Sign In
       </router-link>

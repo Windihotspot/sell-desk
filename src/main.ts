@@ -24,10 +24,7 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
-import {
-  aliases,
-  mdi
-} from 'vuetify/iconsets/mdi'
+import { aliases, mdi } from 'vuetify/iconsets/mdi'
 
 // ApexCharts
 import VueApexCharts from 'vue3-apexcharts'
@@ -100,16 +97,12 @@ initializeKeycloak()
     // Redirect handling
     // ─────────────────────────────────────────
 
-    const urlParams = new URLSearchParams(
-      window.location.search
-    )
+    const urlParams = new URLSearchParams(window.location.search)
 
     const redirectPath = urlParams.get('redirect')
 
     if (redirectPath) {
-      router
-        .push(redirectPath)
-        .catch(() => {})
+      router.push(redirectPath).catch(() => {})
     }
 
     // ─────────────────────────────────────────
@@ -122,7 +115,12 @@ initializeKeycloak()
     // AOS
     // ─────────────────────────────────────────
 
-    AOS.init()
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 50,
+      easing: 'ease-out-cubic',
+    })
   })
   .catch((error) => {
     console.error('❌ Failed to initialize Keycloak:', error)

@@ -126,18 +126,26 @@ function handleSignupSuccess(result) {
     <Navbar />
     <!--Hero Section-->
 
-    <section class="mx-auto max-w-7xl px-4 pb-12 pt-24 sm:px-6 lg:px-10 lg:pb-16 lg:pt-32">
+    <section
+      class="mx-auto max-w-7xl px-4 pb-12 pt-24 sm:px-6 lg:px-10 lg:pb-16 lg:pt-32"
+      data-aos="fade-up"
+      data-aos-duration="800"
+    >
       <div class="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
         <!-- LEFT: copy + form -->
         <div class="max-w-xl">
           <span
             class="inline-block rounded-md bg-sky-50 px-3 py-1.5 text-xs font-semibold tracking-wide text-blue-600"
+            data-aos="fade-down"
+            data-aos-delay="100"
           >
             FREE INVOICING SOFTWARE
           </span>
 
           <h1
             class="mt-5 text-[2.5rem] font-extrabold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
+            data-aos="fade-up"
+            data-aos-delay="200"
           >
             Invoicing,<br />
             but
@@ -160,19 +168,30 @@ function handleSignupSuccess(result) {
             </span>
           </h1>
 
-          <p class="mt-5 max-w-md text-base leading-relaxed text-slate-600">
+          <p
+            class="mt-5 max-w-md text-base leading-relaxed text-slate-600"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             Create professional invoices in seconds, track payments in real time and monitor your
             business growth in a single powerful dashboard.
           </p>
 
-          <div class="mt-8">
+          <div class="mt-8" data-aos="fade-up" data-aos-delay="400">
             <CreateAccount @signin="goToSignin" @success="handleSignupSuccess" />
           </div>
         </div>
 
         <!-- RIGHT: phone mockup -->
-        <div class="flex justify-center lg:justify-end">
+        <div
+          class="flex justify-center lg:justify-end"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+        >
           <div class="relative isolate w-fit">
+            <!-- Keep your existing glow, phone image and floating cards here -->
+            <!-- No changes needed to their existing classes -->
             <!-- Glow -->
             <div
               aria-hidden="true"
@@ -249,7 +268,10 @@ function handleSignupSuccess(result) {
       <!-- FEATURE STRIP -->
       <ul
         class="mt-14 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-slate-100 pt-6 text-sm font-medium text-slate-700 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-10 lg:mt-16"
+        data-aos="fade-up"
+        data-aos-delay="200"
       >
+        <!-- Keep your existing v-for -->
         <li
           v-for="item in [
             'Instant Invoice',
@@ -265,7 +287,11 @@ function handleSignupSuccess(result) {
         </li>
       </ul>
 
-      <p class="mt-8 text-center text-sm font-semibold text-slate-600">
+      <p
+        class="mt-8 text-center text-sm font-semibold text-slate-600"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
         Trusted by businesses across Nigeria
       </p>
     </section>
@@ -277,11 +303,15 @@ function handleSignupSuccess(result) {
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <!-- LEFT: copy (leaving space for your content) -->
           <div>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0b2540] leading-snug">
+            <h2
+              class="text-2xl sm:text-3xl font-extrabold text-[#0b2540] leading-snug"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
               Invoice Templates That Make You Look Professional
             </h2>
 
-            <div class="flex items-center gap-4 mt-8">
+            <div class="flex items-center gap-4 mt-8" data-aos="fade-up" data-aos-delay="200">
               <span
                 class="w-12 h-12 shrink-0 rounded-full bg-orange-50 flex items-center justify-center"
               >
@@ -294,7 +324,7 @@ function handleSignupSuccess(result) {
               <h3 class="text-xl font-extrabold text-[#0b2540]">Multiple Templates</h3>
             </div>
 
-            <div class="flex items-center gap-4 mt-6">
+            <div class="flex items-center gap-4 mt-6" data-aos="fade-up" data-aos-delay="300">
               <span
                 class="w-12 h-12 shrink-0 rounded-full bg-sky-50 flex items-center justify-center"
               >
@@ -315,6 +345,8 @@ function handleSignupSuccess(result) {
 
             <button
               class="mt-8 bg-[#0b2540] hover:bg-[#0a1f36] transition-colors text-white text-sm font-semibold px-8 py-4 rounded-xl"
+              data-aos="fade-up"
+              data-aos-delay="400"
             >
               Create Invoice
             </button>
@@ -374,8 +406,13 @@ function handleSignupSuccess(result) {
     <section class="bg-[#f4f7fb] py-16 lg:py-20">
       <div class="max-w-7xl mx-auto px-6 lg:px-10">
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          <!-- LEFT: product image (drop your image here) -->
-          <div class="flex justify-center lg:justify-start">
+          <!-- LEFT: product image -->
+          <div
+            class="flex justify-center lg:justify-start"
+            data-aos="zoom-in"
+            data-aos-duration="1000"
+            data-aos-delay="100"
+          >
             <img
               src="../assets/img/laptop-phone.png"
               alt="SellDesk dashboard and mobile app"
@@ -386,9 +423,12 @@ function handleSignupSuccess(result) {
           <!-- RIGHT: 2x2 feature cards -->
           <div class="grid grid-cols-2 gap-4 sm:gap-5">
             <div
-              v-for="feature in features"
+              v-for="(feature, index) in features"
               :key="feature.title"
               class="bg-[#0b2540] rounded-2xl p-5 sm:p-6 flex flex-col gap-3"
+              data-aos="fade-up"
+              :data-aos-delay="200 + index * 150"
+              data-aos-duration="800"
             >
               <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                 <svg
@@ -405,6 +445,7 @@ function handleSignupSuccess(result) {
               <h3 class="text-white font-semibold text-sm sm:text-base">
                 {{ feature.title }}
               </h3>
+
               <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
                 {{ feature.description }}
               </p>
@@ -420,7 +461,11 @@ function handleSignupSuccess(result) {
         <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <!-- LEFT: heading + steps -->
           <div>
-            <h2 class="text-2xl sm:text-3xl font-extrabold mb-8 sm:mb-10">
+            <h2
+              class="text-2xl sm:text-3xl font-extrabold mb-8 sm:mb-10"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
               <span class="text-emerald-400">Invoice</span>
               <span class="text-white"> and get </span>
               <span class="text-emerald-400">paid</span>
@@ -428,7 +473,7 @@ function handleSignupSuccess(result) {
 
             <div class="divide-y divide-white/10">
               <!-- Step 1 -->
-              <div class="flex items-start gap-4 py-4">
+              <div class="flex items-start gap-4 py-4" data-aos="fade-up" data-aos-delay="200">
                 <span
                   class="w-10 h-10 shrink-0 rounded-full bg-white/10 flex items-center justify-center"
                 >
@@ -456,7 +501,7 @@ function handleSignupSuccess(result) {
               </div>
 
               <!-- Step 2 -->
-              <div class="flex items-start gap-4 py-4">
+              <div class="flex items-start gap-4 py-4" data-aos="fade-up" data-aos-delay="350">
                 <span
                   class="w-10 h-10 shrink-0 rounded-full bg-white/10 flex items-center justify-center"
                 >
@@ -483,7 +528,7 @@ function handleSignupSuccess(result) {
               </div>
 
               <!-- Step 3 -->
-              <div class="flex items-start gap-4 py-4">
+              <div class="flex items-start gap-4 py-4" data-aos="fade-up" data-aos-delay="500">
                 <span
                   class="w-10 h-10 shrink-0 rounded-full bg-white/10 flex items-center justify-center"
                 >
@@ -510,7 +555,7 @@ function handleSignupSuccess(result) {
               </div>
 
               <!-- Step 4 -->
-              <div class="flex items-start gap-4 pt-4">
+              <div class="flex items-start gap-4 pt-4" data-aos="fade-up" data-aos-delay="650">
                 <span
                   class="w-10 h-10 shrink-0 rounded-full bg-white/10 flex items-center justify-center"
                 >
@@ -538,8 +583,13 @@ function handleSignupSuccess(result) {
             </div>
           </div>
 
-          <!-- RIGHT: product image (drop your image here) -->
-          <div class="relative flex justify-center lg:justify-end">
+          <!-- RIGHT: product image -->
+          <div
+            class="relative flex justify-center lg:justify-end"
+            data-aos="zoom-in"
+            data-aos-duration="1000"
+            data-aos-delay="300"
+          >
             <div class="absolute -inset-16 bg-emerald-400/10 blur-3xl rounded-full -z-10"></div>
 
             <img
@@ -553,12 +603,10 @@ function handleSignupSuccess(result) {
     </section>
 
     <!--Add features section here-->
+
     <section class="relative overflow-hidden py-20 md:py-28 px-6 bg-white">
       <!-- Background decorations -->
       <div class="absolute inset-0 pointer-events-none">
-        <!-- <div
-        class="absolute w-[620px] h-[620px] border border-[#0b2540]/10 rounded-full -right-64 -top-64"
-      ></div> -->
         <div
           class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_8%_20%,rgba(11,37,64,0.08),transparent_28%),radial-gradient(circle_at_92%_80%,rgba(104,173,18,0.10),transparent_30%)]"
         ></div>
@@ -567,19 +615,27 @@ function handleSignupSuccess(result) {
       <div class="max-w-[1180px] mx-auto relative z-10">
         <!-- Eyebrow -->
         <span
-          class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#0b2540]/5 text-[#0b2540] font-bold text-[13px]"
+          class="inline-flex items-center gap-2 text-sm font-semibold text-[#0b2540]"
+          data-aos="fade-up"
+          data-aos-delay="100"
         >
-          <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
           SellDesk ecosystem
         </span>
 
         <h1
           class="text-[clamp(38px,5vw,64px)] leading-[1.02] tracking-[-2.8px] max-w-[760px] mt-5 mb-4 font-bold text-slate-900"
+          data-aos="fade-up"
+          data-aos-delay="200"
         >
           One platform. Every payment workflow.
         </h1>
 
-        <p class="max-w-[700px] text-slate-500 text-lg leading-relaxed mb-12">
+        <p
+          class="max-w-[700px] text-slate-500 text-lg leading-relaxed mb-12"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
           From checkout and invoicing to split payments, delegated payments and installment
           management — bring the payment tools your customers and business need into one connected
           experience.
@@ -590,6 +646,8 @@ function handleSignupSuccess(result) {
           <!-- Tabs -->
           <div
             class="flex flex-col gap-2.5 p-3.5 border border-slate-200 rounded-[26px] bg-white/90 shadow-[0_18px_55px_rgba(16,24,40,0.07)]"
+            data-aos="fade-right"
+            data-aos-delay="200"
           >
             <button
               v-for="(product, index) in products"
@@ -601,6 +659,8 @@ function handleSignupSuccess(result) {
                   ? 'bg-gradient-to-br from-[#0b2540] to-[#123a63] text-white shadow-[0_12px_30px_rgba(11,37,64,0.22)]'
                   : 'text-slate-500 hover:bg-slate-50 hover:translate-x-1'
               "
+              data-aos="fade-up"
+              :data-aos-delay="300 + index * 150"
             >
               <div class="flex items-start gap-2.5">
                 <span
@@ -622,6 +682,9 @@ function handleSignupSuccess(result) {
           <!-- Product Card -->
           <div
             class="relative min-h-[560px] overflow-hidden rounded-[30px] p-8 md:p-10 text-white bg-gradient-to-br from-[#061527] via-[#0b2540] to-[#123a63] shadow-[0_25px_70px_rgba(11,37,64,0.22)]"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="1000"
           >
             <!-- Decorative circles -->
             <div
@@ -654,6 +717,8 @@ function handleSignupSuccess(result) {
                 <div
                   v-if="currentProduct.type === 'invoice'"
                   class="w-[230px] overflow-hidden rounded-xl bg-white shadow-2xl"
+                  data-aos="zoom-in"
+                  data-aos-duration="800"
                 >
                   <img
                     src="@/assets/img/invoice.png"
@@ -666,6 +731,8 @@ function handleSignupSuccess(result) {
                 <div
                   v-else-if="currentProduct.type === 'split'"
                   class="w-[230px] overflow-hidden rounded-xl bg-white shadow-2xl"
+                  data-aos="zoom-in"
+                  data-aos-duration="800"
                 >
                   <img
                     src="@/assets/img/paywithsplit.png"
@@ -675,7 +742,12 @@ function handleSignupSuccess(result) {
                 </div>
 
                 <!-- Pay4Me -->
-                <div v-else class="flex gap-6 items-center">
+                <div
+                  v-else
+                  class="flex gap-6 items-center"
+                  data-aos="zoom-in"
+                  data-aos-duration="800"
+                >
                   <div class="w-[145px] bg-neutral-900 rounded-[25px] p-1.5 shadow-2xl rotate-5">
                     <div class="h-[290px] bg-white rounded-[20px] overflow-hidden text-slate-900">
                       <div
@@ -719,9 +791,11 @@ function handleSignupSuccess(result) {
               <!-- Features -->
               <div class="flex gap-2 flex-wrap mt-6">
                 <span
-                  v-for="feature in currentProduct.features"
+                  v-for="(feature, index) in currentProduct.features"
                   :key="feature"
                   class="px-3 py-2 rounded-full bg-white/10 border border-white/10 text-[11px]"
+                  data-aos="fade-up"
+                  :data-aos-delay="200 + index * 100"
                 >
                   ✓ {{ feature }}
                 </span>
@@ -739,7 +813,6 @@ function handleSignupSuccess(result) {
         </div>
       </div>
     </section>
-
     <!-- <div class="max-w-7xl mx-auto px-6 lg:px-10">
       <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
         LEFT: copy + store badges
