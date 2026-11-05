@@ -45,13 +45,6 @@ const features = [
   }
 ]
 
-// drop your invoice template image paths in here, e.g. '../assets/img/template-1.png'
-// const slides = ref([
-//   { src: '../assets/img/icons/invoice.png', alt: '' },
-//   { src: '../assets/img/invoice.png', alt: '' },
-//   { src: '../assets/img/invoice.png', alt: '' }
-// ])
-
 const slides = ref([
   {
     src: invoiceImage,
@@ -129,37 +122,36 @@ function handleSignupSuccess(result) {
 </script>
 
 <template>
-  <Navbar />
-  <!--Hero Section-->
-  <main class="pt-16 lg:pt-20">
-    <section class="max-w-7xl mx-auto px-6 lg:px-10 pt-14 pb-10">
-      <!-- HERO -->
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[650px]">
+  <div class="relative bg-gray-100 px-0 sm:px-0 overflow-hidden">
+    <Navbar />
+    <!--Hero Section-->
+
+    <section class="mx-auto max-w-7xl px-4 pb-12 pt-24 sm:px-6 lg:px-10 lg:pb-16 lg:pt-32">
+      <div class="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
         <!-- LEFT: copy + form -->
         <div class="max-w-xl">
           <span
-            class="inline-block bg-sky-50 text-blue-600 text-xs font-semibold tracking-wide px-3 py-1.5 rounded-md"
+            class="inline-block rounded-md bg-sky-50 px-3 py-1.5 text-xs font-semibold tracking-wide text-blue-600"
           >
             FREE INVOICING SOFTWARE
           </span>
 
           <h1
-            class="mt-5 text-5xl sm:text-6xl lg:text-[3.4rem] font-extrabold leading-[1.05] text-slate-900"
+            class="mt-5 text-[2.5rem] font-extrabold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
           >
             Invoicing,<br />
             but
             <span class="relative inline-block text-teal-600">
               better
-
               <svg
-                class="absolute left-0 -bottom-2 w-full"
-                height="8"
+                aria-hidden="true"
+                class="absolute -bottom-2 left-0 h-2 w-full"
                 viewBox="0 0 160 8"
                 preserveAspectRatio="none"
               >
                 <path
                   d="M2 6 C 40 1, 120 1, 158 6"
-                  stroke="#0d9488"
+                  stroke="currentColor"
                   stroke-width="3"
                   fill="none"
                   stroke-linecap="round"
@@ -168,112 +160,114 @@ function handleSignupSuccess(result) {
             </span>
           </h1>
 
-          <p class="mt-5 text-slate-500 text-[15px] leading-relaxed max-w-md">
+          <p class="mt-5 max-w-md text-base leading-relaxed text-slate-600">
             Create professional invoices in seconds, track payments in real time and monitor your
             business growth in a single powerful dashboard.
           </p>
 
-          <div class="mt-7">
+          <div class="mt-8">
             <CreateAccount @signin="goToSignin" @success="handleSignupSuccess" />
           </div>
         </div>
 
         <!-- RIGHT: phone mockup -->
-        <div class="relative flex justify-center lg:justify-end mt-10 lg:mt-0">
-          <!-- Background glow -->
-          <div
-            class="absolute -inset-10 bg-gradient-to-br from-teal-50 via-slate-50 to-transparent rounded-[3rem] -z-10"
-          ></div>
+        <div class="flex justify-center lg:justify-end">
+          <div class="relative isolate w-fit">
+            <!-- Glow -->
+            <div
+              aria-hidden="true"
+              class="absolute inset-x-0 inset-y-10 -z-10 rounded-full bg-gradient-to-br from-teal-200/60 via-sky-100/60 to-transparent blur-3xl"
+            ></div>
 
-          <!-- Phone wrapper -->
-          <div class="relative w-[280px] sm:w-[340px] lg:w-[400px]">
             <img
               src="../assets/img/hero.png"
-              alt="SellDesk invoicing app on a phone"
-              class="w-full h-[60vh] max-h-[650px] object-contain drop-shadow-xl transition-opacity duration-700"
+              alt="Selldesk invoicing app on a phone"
+              fetchpriority="high"
+              decoding="async"
+              class="block h-[420px] w-auto object-contain drop-shadow-2xl sm:h-[520px] lg:h-[600px]"
             />
 
-            <!-- FLOATING CARD: PAID -->
+            <!-- Card: paid -->
             <div
-              class="absolute top-[2%] sm:top-[5%] -left-12 sm:-left-20 lg:-left-28 bg-white rounded-xl shadow-[0_12px_35px_rgba(0,0,0,0.12)] px-3.5 py-2.5 w-36 sm:w-40 animate-float border border-slate-100 z-20"
+              aria-hidden="true"
+              class="absolute -left-3 top-[6%] z-10 animate-float whitespace-nowrap rounded-2xl bg-white/90 p-2.5 shadow-xl shadow-slate-900/10 ring-1 ring-slate-900/5 backdrop-blur motion-reduce:animate-none sm:-left-12 sm:p-3 lg:-left-16"
             >
-              <div class="flex items-center gap-1.5">
+              <div class="flex items-center gap-2">
                 <span
-                  class="w-4 h-4 rounded-full bg-emerald-500 text-white text-[9px] flex items-center justify-center shadow-sm"
+                  class="grid h-5 w-5 place-items-center rounded-full bg-emerald-500 text-[10px] font-bold text-white"
+                  >✓</span
                 >
-                  ✓
-                </span>
-
-                <span class="text-[10px] font-semibold text-slate-700"> Invoice Paid </span>
+                <span class="text-[11px] font-semibold text-slate-600 sm:text-xs"
+                  >Invoice Paid</span
+                >
               </div>
-
-              <p class="text-sm font-extrabold text-slate-900 mt-0.5">₦125,000</p>
-
-              <p class="text-[9px] text-slate-400">2 mins ago</p>
+              <p class="mt-1.5 text-base font-extrabold text-slate-900 sm:text-lg">₦125,000</p>
+              <p class="text-[10px] text-slate-400 sm:text-[11px]">2 mins ago</p>
             </div>
 
-            <!-- FLOATING CARD: SENT -->
+            <!-- Card: sent -->
             <div
-              class="absolute top-[12%] -right-10 sm:-right-14 lg:-right-18 bg-white rounded-xl shadow-[0_12px_35px_rgba(0,0,0,0.12)] px-3.5 py-2.5 w-28 sm:w-32 animate-float-delayed border border-slate-100 z-20"
+              aria-hidden="true"
+              class="absolute -right-3 top-[38%] z-10 animate-float-delayed whitespace-nowrap rounded-2xl bg-white/90 p-2.5 shadow-xl shadow-slate-900/10 ring-1 ring-slate-900/5 backdrop-blur motion-reduce:animate-none sm:-right-10 sm:p-3 lg:-right-8"
             >
-              <div class="flex items-center gap-1.5">
-                <span class="text-[11px]"> 📤 </span>
-
-                <span class="text-[10px] font-semibold text-slate-700"> Invoice Sent </span>
+              <div class="flex items-center gap-2">
+                <span class="grid h-5 w-5 place-items-center rounded-full bg-sky-100 text-[11px]"
+                  >📤</span
+                >
+                <span class="text-[11px] font-semibold text-slate-600 sm:text-xs"
+                  >Invoice Sent</span
+                >
               </div>
-
-              <p class="text-[10px] font-semibold text-slate-800 mt-0.5">John Ltd.</p>
-
-              <p class="text-[9px] text-amber-500">Pending</p>
+              <p class="mt-1.5 text-xs font-semibold text-slate-800 sm:text-sm">John Ltd.</p>
+              <span
+                class="mt-1 inline-block rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-semibold text-amber-600"
+              >
+                Pending
+              </span>
             </div>
 
-            <!-- FLOATING CARD: WHATSAPP -->
+            <!-- Card: WhatsApp -->
             <div
-              class="absolute bottom-[8%] sm:bottom-[14%] -left-12 sm:-left-20 lg:-left-28 bg-white rounded-xl shadow-[0_12px_35px_rgba(0,0,0,0.12)] px-3.5 py-2.5 w-36 sm:w-40 animate-float-slow border border-slate-100 z-20"
+              aria-hidden="true"
+              class="absolute -left-3 bottom-[10%] z-10 animate-float-slow whitespace-nowrap rounded-2xl bg-white/90 p-2.5 shadow-xl shadow-slate-900/10 ring-1 ring-slate-900/5 backdrop-blur motion-reduce:animate-none sm:-left-12 sm:p-3 lg:-left-16"
             >
-              <div class="flex items-center gap-1.5">
-                <span class="text-[11px]"> 💬 </span>
-
-                <span class="text-[10px] font-semibold text-slate-700"> Whatsapp shared </span>
+              <div class="flex items-center gap-2">
+                <span class="grid h-5 w-5 place-items-center rounded-full bg-green-100 text-[11px]"
+                  >💬</span
+                >
+                <span class="text-[11px] font-semibold text-slate-600 sm:text-xs"
+                  >WhatsApp shared</span
+                >
               </div>
-
-              <p class="text-[9px] text-slate-400 mt-0.5">Delivered</p>
-
-              <p class="text-[9px] text-slate-300">Just now</p>
+              <p class="mt-1.5 text-xs font-semibold text-slate-800 sm:text-sm">Delivered</p>
+              <p class="text-[10px] text-slate-400 sm:text-[11px]">Just now</p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- FEATURE STRIP -->
-      <div class="mt-16 pt-6 border-t border-slate-100">
-        <div
-          class="flex flex-wrap justify-center items-center gap-x-10 gap-y-3 text-sm font-medium text-slate-700"
+      <ul
+        class="mt-14 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-slate-100 pt-6 text-sm font-medium text-slate-700 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-10 lg:mt-16"
+      >
+        <li
+          v-for="item in [
+            'Instant Invoice',
+            'Payment Tracking',
+            'Secure & Reliable',
+            'Live Analytics'
+          ]"
+          :key="item"
+          class="flex items-center gap-2"
         >
-          <span class="flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            Instant Invoice
-          </span>
+          <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span>
+          {{ item }}
+        </li>
+      </ul>
 
-          <span class="flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            Payment Tracking
-          </span>
-
-          <span class="flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            Secure &amp; Reliable
-          </span>
-
-          <span class="flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            Live Analytics
-          </span>
-        </div>
-      </div>
-
-      <!-- TRUSTED TEXT -->
-      <p class="text-center font-bold text-slate-900 mt-8">Trusted by businesses across Nigeria</p>
+      <p class="mt-8 text-center text-sm font-semibold text-slate-600">
+        Trusted by businesses across Nigeria
+      </p>
     </section>
 
     <!--Invoice Template Section-->
@@ -623,10 +617,6 @@ function handleSignupSuccess(result) {
                 </div>
               </div>
             </button>
-
-            <!-- <div class="mt-auto pt-3 px-3.5 text-[11px] text-slate-400 border-t border-slate-200">
-            Auto-playing • Click any tab to pause & jump
-          </div> -->
           </div>
 
           <!-- Product Card -->
@@ -660,52 +650,6 @@ function handleSignupSuccess(result) {
 
               <!-- Visual Stage -->
               <div class="min-h-[300px] flex items-center justify-center mt-5 relative">
-                <!-- Payment Widget -->
-                <!-- <div v-if="currentProduct.type === 'widget'" class="w-full max-w-[610px]">
-                <div
-                  class="bg-neutral-900 rounded-t-[15px] rounded-b-[7px] p-2 pb-4 shadow-2xl transform perspective-900 rotate-x-1"
-                >
-                  <div class="bg-white rounded-lg overflow-hidden h-[245px] text-slate-800 p-4">
-                    <div class="flex justify-between text-[11px] font-extrabold">
-                      <span>Checkout</span>
-                      <span class="text-[#0b2540]">Payment Widget</span>
-                    </div>
-                    <div class="grid grid-cols-3 gap-2 mt-4">
-                      <div class="p-3.5 rounded-lg bg-[#0b2540]/5">
-                        <small class="text-[8px] text-slate-500">ORDER TOTAL</small>
-                        <b class="block text-xs mt-1.5">₦250,000</b>
-                      </div>
-                      <div class="p-3.5 rounded-lg bg-emerald-50">
-                        <small class="text-[8px] text-slate-500">STATUS</small>
-                        <b class="block text-xs mt-1.5 text-emerald-600">Ready</b>
-                      </div>
-                      <div class="p-3.5 rounded-lg bg-orange-50">
-                        <small class="text-[8px] text-slate-500">REFERENCE</small>
-                        <b class="block text-xs mt-1.5">#QDL2045</b>
-                      </div>
-                    </div>
-                    <div class="mt-3 border border-slate-100 rounded-lg p-2.5">
-                      <div
-                        class="h-6 border-b border-slate-100 flex items-center justify-between text-[8px]"
-                      >
-                        <span>MacBook Air M3</span><b>₦250,000</b>
-                      </div>
-                      <div
-                        class="h-6 border-b border-slate-100 flex items-center justify-between text-[8px]"
-                      >
-                        <span>Payment method</span><b>Secure checkout</b>
-                      </div>
-                      <div class="h-6 flex items-center justify-between text-[8px]">
-                        <span>Notification</span><b class="text-emerald-600">Instant</b>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="h-2 w-[108%] -ml-[4%] bg-gradient-to-b from-neutral-400 to-neutral-600 rounded-b-full"
-                  ></div>
-                </div>
-              </div> -->
-
                 <!-- Invoice -->
                 <div
                   v-if="currentProduct.type === 'invoice'"
@@ -770,44 +714,6 @@ function handleSignupSuccess(result) {
                     </div>
                   </div>
                 </div>
-
-                <!-- CreditList -->
-                <!-- <div v-else class="w-[340px] bg-white text-slate-900 rounded-[20px] p-5 shadow-2xl">
-                <div class="flex justify-between items-center">
-                  <h3 class="text-xl font-bold m-0">CreditList</h3>
-                  <span class="text-[#0b2540] text-[10px]">Dashboard</span>
-                </div>
-                <div class="grid grid-cols-2 gap-2 mt-4">
-                  <div class="p-3 bg-slate-50 rounded-lg">
-                    <small class="text-[8px] text-slate-500">TOTAL CREDIT REQUESTS</small>
-                    <b class="block text-base mt-1">₦3.56m</b>
-                  </div>
-                  <div class="p-3 bg-slate-50 rounded-lg">
-                    <small class="text-[8px] text-slate-500">IN-FLOW</small>
-                    <b class="block text-base mt-1">₦20.00m</b>
-                  </div>
-                  <div class="p-3 bg-slate-50 rounded-lg">
-                    <small class="text-[8px] text-slate-500">PAST DUE</small>
-                    <b class="block text-base mt-1">₦0</b>
-                  </div>
-                  <div class="p-3 bg-slate-50 rounded-lg">
-                    <small class="text-[8px] text-slate-500">DEFAULTS</small>
-                    <b class="block text-base mt-1">4</b>
-                  </div>
-                </div>
-                <div class="mt-3 p-3 border border-slate-200 rounded-xl text-[9px]">
-                  <b>Payment schedule</b>
-                  <div class="flex justify-between py-1.5">
-                    <span>Installment 01</span><span class="text-emerald-600">Paid ✓</span>
-                  </div>
-                  <div class="flex justify-between py-1.5">
-                    <span>Installment 02</span><span class="text-emerald-600">Paid ✓</span>
-                  </div>
-                  <div class="flex justify-between py-1.5">
-                    <span>Installment 03</span><span class="text-amber-600">Pending</span>
-                  </div>
-                </div>
-              </div> -->
               </div>
 
               <!-- Features -->
@@ -834,10 +740,7 @@ function handleSignupSuccess(result) {
       </div>
     </section>
 
-    <!--Free invoiving everywhere-->
-
-    <!-- <section class="bg-white py-16 lg:py-20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <!-- <div class="max-w-7xl mx-auto px-6 lg:px-10">
       <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
         LEFT: copy + store badges
         <div>
@@ -935,10 +838,10 @@ function handleSignupSuccess(result) {
           ></div>
         </div>
       </div>
-    </div>
-  </section> -->
-  </main>
-  <Footer />
+    </div> -->
+
+    <Footer />
+  </div>
 </template>
 
 <style scoped>
